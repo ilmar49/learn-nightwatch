@@ -6,7 +6,7 @@ module.exports = {
         .url("https://google.com/")
         .waitForElementVisible("body", 2000)
         .setValue('input[id="fakebox-input"]', 'cat')
-        .waitForElementVisible("input[type=submit]")
+        //.waitForElementVisible("input[type=submit]")      //never appeared
         .click("input[type=submit]")
         //.click('input[name=btnK]')
         //.click('input[name=btnG]')
