@@ -5,13 +5,10 @@ module.exports = {
       browser
         .url("https://google.com/")
         .waitForElementVisible("body", 2000)
-        .setValue('input[id="fakebox-input"]', 'cat')
-        //.waitForElementVisible("input[type=submit]")      //never appeared
-        .click("input[type=submit]")
-        //.click('input[name=btnK]')
-        //.click('input[name=btnG]')
+        .setValue('input[name="q"]', 'cat')
+        .keys(browser.Keys.ENTER)
         .waitForElementVisible("body", 2000)
-        .assert.containsText('title','cat')
+        .assert.titleContains('cat')
         .saveScreenshot(`${config.imgpath(browser)}Google-cat.png`)
         .assert.containsText('a[href="https://en.wikipedia.org/wiki/Cat"]', 'Cat - Wikipedia')
         .click('a[href="https://en.wikipedia.org/wiki/Cat"]')

@@ -8,7 +8,8 @@ module.exports = {
         .useXpath()
         .click("//a[@href='https://rate.ee/mailbox']")
         .waitForElementVisible("//body", 2000)
-        .assert.containsText("//body]", 'Seda lehte näevad ainult registreeritud kasutajad.')
+        .assert.containsText("//body", 'Seda lehte näevad ainult registreeritud kasutajad.')
+        .useCss()
         .end();
     },
 

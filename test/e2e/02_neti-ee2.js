@@ -9,12 +9,13 @@ module.exports = {
         .click("input[type=submit]")                    // Click the search button
         .waitForElementVisible("body", 2000)
         .useXpath()
-        .assert.containsText("a[@href='/cgi-bin/teema/MEELELAHUTUS_JA_HOBID/Koduloomad/']", "Koduloomad")
-        .click("a[@href='/cgi-bin/teema/MEELELAHUTUS_JA_HOBID/Koduloomad/']")
+        .assert.containsText("//a[@href='/cgi-bin/teema/MEELELAHUTUS_JA_HOBID/Koduloomad/']", "Koduloomad")
+        .click("//a[@href='/cgi-bin/teema/MEELELAHUTUS_JA_HOBID/Koduloomad/']")
         .waitForElementVisible("//body", 2000)
         .click("//a[@href='http://loomakaitse.eu/']")
         .waitForElementVisible("//body", 2000)
-        .assert.containsUrl("//a[@href='http://loomakaitse.eu']")
+        .useCss()
+        .assert.urlEquals("http://loomakaitse.eu/")
         .saveScreenshot(`${config.imgpath(browser)}loomakaitse-eu.png`)
         .end()
     },

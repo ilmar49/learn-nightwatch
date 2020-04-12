@@ -10,13 +10,12 @@ module.exports = {
         .click("a[href='https://www.auto24.ee/kasutatud/nimekiri.php?a=101&j=3']")
         .waitForElementVisible("body", 2000)
         .setValue('input[id="searchParam-year"]', '2010')
-        .setValue('input[id="searchParam-fuel"]', 'bensiin')
         .click('input[id="searchParam-fuel"]')
         .click('input[id="searchParam-fuel"]', 'bensiin')
         .click('input[id="searchParam-transmission"]')
         .click('input[id="item-searchParam-transmission"]', 'automaat')
         .verify.attributeEquals('id="searchParam-show_pictures"', 'checked', 'true')
-        .click("input[type=submit]")
+        .click("button[type=submit]")
         .end();
     },
   };
