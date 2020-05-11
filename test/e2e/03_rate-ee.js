@@ -30,3 +30,19 @@ module.exports = {
 */
 
 };
+/*
+browser
+      .url("https://rate.ee/register")
+      .waitForElementVisible("body")
+      .resizeWindow(1200, 800)
+      .useXpath()
+      .click("//a[@id='fake-city']")
+      .useCss()
+      .waitForElementVisible('#modal-city-name')
+      .setValue('#modal-city-name', 'tallinn')
+      .useXpath()
+      .waitForElementVisible('//button[text()="Tallinn (Harju maakond)"]')
+      .click('//button[text()="Tallinn (Harju maakond)"]')
+      .pause(2000);
+
+      */

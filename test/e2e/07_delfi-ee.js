@@ -4,27 +4,25 @@ module.exports = {
     "Test delfi.ee": function (browser) {
       browser
         .url("https://ekspress.delfi.ee/")
-        .waitForElementVisible("body", 2000)
-        .click('a[href="https://ekspress.delfi.ee/areen"]')
-        .waitForElementVisible("body", 2000)
-        .click('a[href="https://ekspress.delfi.ee/teema/kirjandus"]')
-        .waitForElementVisible("body", 2000)
-        .click('a[href="https://ekspress.delfi.ee/teema/kirjandus?page=3"]')
-        .waitForElementVisible("body", 2000)
-        //open last article from listing
-
-        .assert.containsElement('i.icon.icon--sound.icon--sound-dark')
-        .saveScreenshot(`${config.imgpath(browser)}last-article.png`)
-        //unable to "Scroll to "Loe veel" section", because section is missing. Scrolling to "Seotud lood" instead
-        .assert.containsText('Seotud lood').scrollIntoView()
-        //open first article
-
-
-        .waitForElementVisible("body", 2000)
-        .assert.containsElement('i.icon.icon--sound.icon--sound-dark')
+        .resizeWindow(1280,1024)
+        .waitForElementVisible("body", 5000)
         .useXpath()
-        .assert.containsElement("//div[contains(@class, 'author__name')]")            //Check that article has author
-        .saveScreenshot(`${config.imgpath(browser)}first-article.png`)
+        .click('//a[@href="areen"]')
+        .waitForElementVisible('//li[@class="header__navigation-bottom__item"]/a[text()="Kirjandus"]')
+        .click('//li[@class="header__navigation-bottom__item"]/a[text()="Kirjandus"]')
+        .waitForElementVisible("//body", 2000)
+        .useCss()
+        .click('a.pager__button--next')
+        .pause(2000)
+        .click('a.pager__button--next')
+        .useXpath()
+        .waitForElementVisible("(//span[text()='Loe edasi'])[last()]")
+        .moveToElement("(//span[text()='Loe edasi'])[last()]", 0, 0)
+        .pause(2000)
+        .click("(//span[text()='Loe edasi'])[last()]")
+        .waitForElementVisible('//a[@class="article__listen"]')
+        .assert.containsText('//a[@class="article__listen"]', "KUULA")
+        .saveScreenshot(`${config.imgpath(browser)}last-article.png`)
         .end()
     },
 };

@@ -5,17 +5,31 @@ module.exports = {
       browser
         .url("https://www.auto24.ee/main/mainindex.php")
         .waitForElementVisible("body", 2000)
-        .click("a[href='https://www.auto24.ee/kasutatud/kasutatud.php']")
-        .waitForElementVisible("body", 2000)
-        .click("a[href='https://www.auto24.ee/kasutatud/nimekiri.php?a=101&j=3']")
-        .waitForElementVisible("body", 2000)
+        .resizeWindow(1280,1024)
+        .useXpath()
+        .click('//a[@href="/kasutatud/kasutatud.php"]')
+        .waitForElementVisible("//body", 2000)
+        .click('//a[@href="/kasutatud/nimekiri.php?a=101&j=3"]')
+        .waitForElementVisible("//body", 2000)
+        .useCss()
         .setValue('input[id="searchParam-year"]', '2010')
-        .click('input[id="searchParam-fuel"]')
-        .click('input[id="searchParam-fuel"]', 'bensiin')
-        .click('input[id="searchParam-transmission"]')
-        .click('input[id="item-searchParam-transmission"]', 'automaat')
-        .verify.attributeEquals('id="searchParam-show_pictures"', 'checked', 'true')
-        .click("button[type=submit]")
-        .end();
+        .setValue('select[id="searchParam-fuel"]', 'bensiin')
+        .setValue('select[id="searchParam-transmission"]', 'automaat')
+        .moveToElement('#searchParam-show_pictures', 0, 0)
+        .pause(4000);
+
+        browser.elements(
+          "css selector",
+          "#searchParam-show_pictures:not(:checked)",
+          (result) => {
+            if (result.value.length === 1) {
+              browser.click("#searchParam-show_pictures:not(:checked)");
+            }
+          },
+        );
+
+          browser.click("input[name=otsi]")
+          .pause(5000)
+          .end()
     },
   };
