@@ -16,7 +16,7 @@ module.exports = {
     },
     "rules": {
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": "off",
         "indent": "off",
         "func-names": "off",
         "no-unused-expressions": "off",
