@@ -4,7 +4,7 @@ module.exports = {
     "Test delfi.ee": function (browser) {
       browser
         .url("https://ekspress.delfi.ee/")
-        .resizeWindow(1280,1024)
+        .resizeWindow(1280, 1024)
         .waitForElementVisible("body", 5000)
         .useXpath()
         .click('//a[@href="areen"]')
@@ -23,6 +23,6 @@ module.exports = {
         .waitForElementVisible('//a[@class="article__listen"]')
         .assert.containsText('//a[@class="article__listen"]', "KUULA")
         .saveScreenshot(`${config.imgpath(browser)}last-article.png`)
-        .end()
+        .end();
     },
 };

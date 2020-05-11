@@ -5,8 +5,8 @@ module.exports = {
       browser
         .url("https://www.neti.ee/")
         .waitForElementVisible("body", 2000)
-        .setValue("input[name=query]", "kass")          //write "kass" to search box
-        .click("input[type=submit]")                    // Click the search button
+        .setValue("input[name=query]", "kass") // write "kass" to search box
+        .click("input[type=submit]") // Click the search button
         .waitForElementVisible("body", 2000)
         .useXpath()
         .assert.containsText("//a[@href='/cgi-bin/teema/MEELELAHUTUS_JA_HOBID/Koduloomad/']", "Koduloomad")
@@ -17,6 +17,6 @@ module.exports = {
         .useCss()
         .assert.urlEquals("http://loomakaitse.eu/")
         .saveScreenshot(`${config.imgpath(browser)}loomakaitse-eu.png`)
-        .end()
+        .end();
     },
 };

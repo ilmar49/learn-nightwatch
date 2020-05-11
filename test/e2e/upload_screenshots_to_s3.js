@@ -1,3 +1,4 @@
+/* eslint-disable */
 require('env2')('.env'); // optionally store youre Evironment Variables in .env
 var conf = require('../../nightwatch.conf.js')
 var fs = require('fs'); // read the screenshot files

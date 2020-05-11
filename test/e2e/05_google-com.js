@@ -13,7 +13,7 @@ module.exports = {
         .assert.containsText('a[href="https://en.wikipedia.org/wiki/Cat"]', 'Cat - Wikipedia')
         .click('a[href="https://en.wikipedia.org/wiki/Cat"]')
         .waitForElementVisible("body", 2000)
-        .assert.containsText('body','Felis catus')
-        .end()
+        .assert.containsText('body', 'Felis catus')
+        .end();
     },
 };

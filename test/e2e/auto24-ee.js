@@ -5,7 +5,7 @@ module.exports = {
       browser
         .url("https://www.auto24.ee/main/mainindex.php")
         .waitForElementVisible("body", 2000)
-        .resizeWindow(1280,1024)
+        .resizeWindow(1280, 1024)
         .useXpath()
         .click('//a[@href="/kasutatud/kasutatud.php"]')
         .waitForElementVisible("//body", 2000)
@@ -30,6 +30,6 @@ module.exports = {
 
           browser.click("input[name=otsi]")
           .pause(5000)
-          .end()
+          .end();
     },
   };

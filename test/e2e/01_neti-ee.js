@@ -15,9 +15,8 @@ module.exports = {
       .assert.containsText("body", "Ametlikud Teadaanded (AT)") // css
       .saveScreenshot(`${config.imgpath(browser)}neti-ee-valitsus.png`)
       .end();
+  },
 
-  }, 
-  
   /*
   "Meelelahutus ja Hobid": function (browser) {
     browser

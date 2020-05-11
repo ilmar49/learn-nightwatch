@@ -15,5 +15,12 @@ module.exports = {
         "ecmaVersion": 2018
     },
     "rules": {
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "linebreak-style": ["error", "windows"],
+        "indent": "off",
+        "func-names": "off",
+        "no-unused-expressions": "off",
+        "quotes": "off",
+        "no-unused-vars": "off",
     }
 };
